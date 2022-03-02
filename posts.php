@@ -16,7 +16,8 @@ if(isset($_GET['id'])){
 }
 $query = "SELECT * FROM post where cat= $id";
 $table = $dbCon->select($query);
-if($table){
+$row = mysqli_num_rows($table);
+if($row > 0){
 foreach ($table as  $value) {
 
 ?>
@@ -41,7 +42,7 @@ foreach ($table as  $value) {
 <?php } // foreach end
 ?>			
 <?php
-}else{header("location:404.php");}
+}else{echo "<h3> No post found in this catagory</h3>";}
 
 ?>
 

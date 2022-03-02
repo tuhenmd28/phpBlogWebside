@@ -9,8 +9,10 @@
                         if(isset($_GET['submit'])){
 
                             $name = $_GET['name'];
-                            $sql = "INSERT INTO categories( name) VALUES ('$name')";
-                            $result = $dbCon->select($sql);
+                            $sql = "INSERT INTO categories( name,valid) VALUES ('$name',1)";
+                            $result = $dbCon->insert($sql);
+                            echo "<script>window.location='catlist.php'</script>";
+
                         }
                         
                         ?>					

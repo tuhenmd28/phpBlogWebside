@@ -16,7 +16,7 @@
 					<tbody>
 
 					<?php 
-					$sql = "SELECT * FROM categories";
+					$sql = "SELECT * FROM categories where valid = 1";
 					$result = $dbCon->select($sql);
 					foreach($result as $key=>$value){
 						
