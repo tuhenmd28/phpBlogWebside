@@ -40,6 +40,7 @@ $formateObj = new dateFormate();
 					
 					if($row == 1){
 						session::set("login",true);
+						
 						session::set("username",$value['userName']);
 						session::set("id",$value["id"]);
 						header("location:index.php");

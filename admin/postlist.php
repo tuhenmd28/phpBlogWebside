@@ -7,22 +7,40 @@
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
-							<th>Post Title</th>
-							<th>Description</th>
-							<th>Category</th>
-							<th>Image</th>
-							<th>Action</th>
+							<th width="5%">NO.</th>
+							<th width="10%">Post Title</th>
+							<th width="25%">Description</th>
+							<th width="10%">Category</th>
+							<th width="10%">Image</th>
+							<th width="10%">Author</th>
+							<th width="10%">tags</th>
+							<th width="10%">Date</th>
+							<th width="10%">Action</th>
 						</tr>
 					</thead>
 					<tbody>
+						<?php  
+						$query = "SELECT p.id,p.title,p.body,p.image,p.author,p.tags,p.date,c.name FROM post p INNER JOIN categories c ON p.cat = c.id;
+						";
+						$result = $dbCon->select($query);
+						if($result){
+							foreach($result as $key=>$val){
+								
+						?>
+						
 						<tr class="odd gradeX">
-							<td>Trident</td>
-							<td>Internet Explorer 4.0</td>
-							<td>Win 95+</td>
-							<td class="center"> 4</td>
+							<td><?php echo ++$key ?></td>
+							<td><?php echo $val['title'] ?></td>
+							<td><?php echo $formateObj->textshorten( $val['body'],150)?></td>
+							<td><?php echo $val['name'] ?></td>
+							<td style="padding: 0;"> <img width="100" height="100" src="<?php echo $val['image'] ?>" alt=""></td>
+							<td class="center"> <?php echo $val['author'] ?></td>
+							<td class="center"> <?php echo $val['tags'] ?></td>
+							<td class="center"> <?php echo $formateObj->Fdate( $val['date']); ?></td>
 							<td><a href="">Edit</a> || <a href="">Delete</a></td>
 						</tr>
-						<tr class="even gradeC">
+						<?php }} ?>
+						<!-- <tr class="even gradeC">
 							<td>Trident</td>
 							<td>Internet Explorer 5.0</td>
 							<td>Win 95+</td>
@@ -134,7 +152,7 @@
 							<td>-</td>
 							<td class="center">-</td>
 							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 	

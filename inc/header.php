@@ -59,7 +59,7 @@ $(window).load(function() {
 			</div>
 			<div class="searchbtn clear">
 			<form action="search.php" method="post">
-				<input type="text" name="search" placeholder="Search keyword..."/>
+				<input type="text" name="search" required placeholder="Search keyword..."/>
 				<input type="submit" name="submit" value="Search"/>
 			</form>
 			</div>

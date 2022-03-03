@@ -30,8 +30,8 @@
 		?>
 			<div class="about">
 				<h2><?php echo $value['title'] ?></h2>
-				<h4><?php echo $formateObj->Fdate( $value['date']); ?>, By Delowar</h4>
-				<img src="./admin/uploade/<?php echo $value["image"]; ?>"" alt="MyImage"/>
+				<h4><?php echo $formateObj->Fdate( $value['date']); ?>,<?php echo $value['author'] ?> </h4>
+				<img src="./admin/<?php echo $value["image"]; ?>"" alt="MyImage"/>
 				<p><?php echo $value['body'] ; $cat = $value['cat'];?></p>
 				<?php } // foreach loop end here ?>
 				<div class="relatedpost clear">
@@ -43,7 +43,7 @@
 					if($Rresult){
 					foreach($Rresult as $rvalue ){ ?>
 					<a href="post.php?id=<?php echo $rvalue['id']; ?>">
-					<img src="./admin/uploade/<?php echo $rvalue["image"]; ?>" alt="post image"/>
+					<img src="./admin/<?php echo $rvalue["image"]; ?>" alt="post image"/>
 					</a>
 				
 					<?php }

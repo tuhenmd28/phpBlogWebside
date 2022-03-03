@@ -60,13 +60,21 @@ $formateObj = new dateFormate();
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <li> <?php echo session::get("username");  ?> </li>
+                            
                             <?php 
                             
                                 if(isset($_GET['action']) && $_GET['action'] == 'logout'){
                                     session::desroy();
                                 }
 
+
                             ?>
+                            <!-- <script>
+                                // setTimeout(() => {
+                                //     window.location='login.php';
+                                // }, 50000);
+                                
+                            </script> -->
                             <li><a href="?action=logout">Logout</a></li>
                         </ul>
                     </div>

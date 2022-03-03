@@ -35,7 +35,7 @@
 	    ?>
 				<div class="popular clear">
 					<h3><a href="post.php?id='<?php echo $value["id"]; ?>'"><?php echo $value["title"]; ?></a></h3>
-					<a href="post.php?id='<?php echo $value["id"]; ?>'"><img src="./admin/uploade/<?php echo $value["image"]; ?>" alt="post image"/></a>
+					<a href="post.php?id='<?php echo $value["id"]; ?>'"><img src="./admin/<?php echo $value["image"]; ?>" alt="post image"/></a>
 					<p><?php echo $formateObj->textshorten( $value['body'],130); ?></p>	
 				</div>
 				<?php } } else{
