@@ -43,19 +43,34 @@ $(window).load(function() {
 
 <body>
 	<div class="headersection templete clear">
-		<a href="#">
+		<a href="./admin/login.php">
+			<?php 
+			 $sql = "SELECT * FROM logotitle where id=7";
+			 $result = $dbCon->select($sql);
+			 if($result){
+				 foreach($result as $val){
+					
+				 }}
+			?>
 			<div class="logo">
-				<img src="images/logo.png" alt="Logo"/>
-				<h2>Website Title</h2>
-				<p>Our website description</p>
+				<img src="./admin/<?php echo $val['logo'] ?>" alt="Logo"/>
+				<h2><?php echo $val['title'] ?></h2>
+				<p><?php echo $val['description'] ?></p>
 			</div>
 		</a>
 		<div class="social clear">
 			<div class="icon clear">
-				<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+<?php 
+     $sql = "SELECT * FROM socialMedia WHERE id=1";
+     $result = $dbCon->select($sql);
+     if($result){
+     foreach($result as $val){
+ ?>
+				<a href="<?php echo $val['facebook'] ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="<?php echo $val['twitter'] ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="<?php echo $val['linkedin'] ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="<?php echo $val['googleplus'] ?>" target="_blank"><i class="fa fa-google-plus"></i></a>
+<?php }} ?>
 			</div>
 			<div class="searchbtn clear">
 			<form action="search.php" method="post">

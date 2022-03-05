@@ -26,6 +26,12 @@ class session{
             header("location:login.php");
         }
     }
+    public static function checklogin(){
+        self::init();
+        if(self::get("login") == true){
+            header("location:index.php");
+        }
+    }
 
 
     public static function desroy(){

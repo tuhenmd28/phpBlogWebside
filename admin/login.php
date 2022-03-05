@@ -1,7 +1,7 @@
 <?php
 
 	include "../lib/session.php";
-	session::init();
+	session::checklogin();
 
 ?>
 <?php include "../lib/Database.php";?>
