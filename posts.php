@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
 }else{
 	$id = 1;
 }
-$query = "SELECT * FROM post where cat= $id";
+$query = "SELECT * FROM post where cat = $id";
 $table = $dbCon->select($query);
 $row = mysqli_num_rows($table);
 if($row > 0){

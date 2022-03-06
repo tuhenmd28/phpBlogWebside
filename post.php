@@ -7,10 +7,6 @@
  }else{
 	$id =$_GET['id'];
 }
-// $id =$_GET['id'];
-
-// $i = $_GET['id'];
-// echo $i;
 
 ?>
 
@@ -30,7 +26,7 @@
 		?>
 			<div class="about">
 				<h2><?php echo $value['title'] ?></h2>
-				<h4><?php echo $formateObj->Fdate( $value['date']); ?>,<?php echo $value['author'] ?> </h4>
+				<h4><?php echo $formateObj->Fdate( $value['date']); ?>,<a href=""><?php echo $value['author'] ?> </a> </h4>
 				<img src="./admin/<?php echo $value["image"]; ?>"" alt="MyImage"/>
 				<p><?php echo $value['body'] ; $cat = $value['cat'];?></p>
 				<?php } // foreach loop end here ?>

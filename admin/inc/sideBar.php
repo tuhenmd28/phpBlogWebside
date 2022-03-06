@@ -19,7 +19,7 @@
 					$result = $dbCon->select($sql);
 					foreach($result as $value){
                         ?>
-                        <li><a href="pages.php?pageid=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a> </li>
+                        <li><a href="page.php?pageid=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a> </li>
                     <?php } ?>     
                             </ul>
                         </li>

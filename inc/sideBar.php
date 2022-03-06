@@ -13,7 +13,7 @@
 
 						
 						?>
-						<li><a href="posts.php?id=<?php echo $value['id'] ;?>"><?php echo $value['name']; ?></a></li>
+						<li><a href="posts.php?catid=<?php echo $value['id'] ;?>"><?php echo $value['name']; ?></a></li>
 					
 						<?php } }else{
 							echo '<li> Category Not Found';
@@ -34,8 +34,8 @@
 				
 	    ?>
 				<div class="popular clear">
-					<h3><a href="post.php?id='<?php echo $value["id"]; ?>'"><?php echo $value["title"]; ?></a></h3>
-					<a href="post.php?id='<?php echo $value["id"]; ?>'"><img src="./admin/<?php echo $value["image"]; ?>" alt="post image"/></a>
+					<h3><a href='post.php?id=<?php echo $value['id']; ?>'><?php echo $value["title"]; ?></a></h3>
+					<a href="post.php?id=<?php echo $value['id']; ?>"><img src="./admin/<?php echo $value["image"]; ?>" alt="post image"/></a>
 					<p><?php echo $formateObj->textshorten( $value['body'],130); ?></p>	
 				</div>
 				<?php } } else{

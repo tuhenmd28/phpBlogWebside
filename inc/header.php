@@ -3,11 +3,40 @@
 <?php 
 $dbCon =new Database();
 $formateObj = new dateFormate();
+define("TITLE", "Blog Webside");
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Basic Website</title>
+<?php 
+
+if(isset($_GET['pageid'])){
+	$id = $_GET['pageid'];
+	$pageidsql = "SELECT * FROM addpage where id ='$id' ";
+	$result = $dbCon->select($pageidsql);
+	foreach($result as $value){
+?>
+     <title><?php echo $value['name'] ?>-<?php echo TITLE; ?></title>
+     <?php } }elseif(isset($_GET['id'])){
+	$pid = $_GET['id'];
+	$postidsql = "SELECT * FROM post where id ='$pid' ";
+	$result = $dbCon->select($postidsql);
+	foreach($result as $value){
+?>
+     <title><?php echo $value['title'] ?>-<?php echo TITLE; ?></title>
+    <?php	}}elseif(isset($_GET['catid'])){
+	$pid = $_GET['catid'];
+	$postidsql = "SELECT * FROM categories	where id ='$pid' ";
+	$result = $dbCon->select($postidsql);
+	foreach($result as $value){
+?>
+     <title><?php echo $value['name'] ?>-<?php echo TITLE; ?></title>
+    <?php	}}
+	 else{ ?>
+		<title><?php echo $formateObj->title(); ?>-<?php echo TITLE; ?></title>
+	<?php } ?>
+	
 	<meta name="language" content="English">
 	<meta name="description" content="It is a website about education">
 	<meta name="keywords" content="blog,cms blog">
@@ -43,7 +72,7 @@ $(window).load(function() {
 
 <body>
 	<div class="headersection templete clear">
-		<a href="./admin/login.php">
+		<a href="">
 			<?php 
 			 $sql = "SELECT * FROM logotitle where id=7";
 			 $result = $dbCon->select($sql);
@@ -61,6 +90,7 @@ $(window).load(function() {
 		<div class="social clear">
 			<div class="icon clear">
 <?php 
+
      $sql = "SELECT * FROM socialMedia WHERE id=1";
      $result = $dbCon->select($sql);
      if($result){
@@ -81,9 +111,25 @@ $(window).load(function() {
 		</div>
 	</div>
 <div class="navsection templete">
+		<?php $path = $_SERVER['SCRIPT_FILENAME'];
+		      $creantpage = basename($path,'.php');
+		?>
 	<ul>
-		<li><a id="active" href="index.php">Home</a></li>
-		<li><a href="about.php">About</a></li>	
-		<li><a href="contact.php">Contact</a></li>
+		<li><a <?php  if( $creantpage == 'index'){echo 'id="active"'; }?> href="index.php">Home</a></li>
+		<?php 
+			$sql = "SELECT * FROM addpage ";
+			$result = $dbCon->select($sql);
+			foreach($result as $value){
+        ?>
+           <li><a
+		   <?php 
+		   if(isset($_GET['pageid']) && $_GET['pageid'] == $value['id']){
+			   echo 'id="active"';
+		   }
+		   ?>
+		   href="page.php?pageid=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a> </li>
+          <?php } ?>
+		<!-- <li><a href="about.php">About</a></li>	 -->
+		<li><a <?php  if( $creantpage == 'contact'){echo 'id="active"'; }?>  href="contact.php">Contact</a></li>
 	</ul>
 </div>
