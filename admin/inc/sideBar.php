@@ -11,10 +11,16 @@
                             </ul>
                         </li>
 						
-                         <li><a class="menuitem">Update Pages</a>
+                         <li><a class="menuitem"> Pages</a>
                             <ul class="submenu">
-                                <li><a>About Us</a></li>
-                                <li><a>Contact Us</a></li>
+                            <li><a href="addpage.php">Add New Page</a> </li>
+                            <?php 
+					$sql = "SELECT * FROM addpage ";
+					$result = $dbCon->select($sql);
+					foreach($result as $value){
+                        ?>
+                        <li><a href="pages.php?pageid=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a> </li>
+                    <?php } ?>     
                             </ul>
                         </li>
                         <li><a class="menuitem">Category Option</a>
