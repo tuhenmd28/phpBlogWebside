@@ -1,0 +1,86 @@
+  /* green */
+  ul.pagination li a {
+    text-decoration: none;
+    padding: 6px 10px;
+    margin: 0 5px;
+    background: #2d9d2d;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 3px;
+    transition: all .4s;
+}
+    ul.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+    .headersection {
+        background: #007500 none repeat scroll 0 0;
+    }
+    .icon a {
+    background: #2d9d2d none repeat scroll 0 0;
+   }
+   .searchbtn input[type="text"] {
+    border: 1px solid #2d9d2d;
+    background: #52c252;
+}
+.searchbtn input[type="submit"] {
+    border: 1px solid #2d9d2d;
+    background: #007500;
+    transition: all .5s;
+}
+.searchbtn input[type="submit"]:hover {
+    background: #4FE350 none repeat scroll 0 0;
+    border: 1px solid #4FE350;
+    color: #fff;
+}
+.navsection {
+    background: none repeat scroll 0 0 #00A80C;
+    min-height: 38px;
+}
+.navsection ul li {
+    border-left: 1px solid #007500;
+    border-right: 1px solid #007500;
+}
+.maincontent {
+    background: #ebfee5 none repeat scroll 0 0;
+    border: 1px solid #c5dec8;
+}
+.samepost h2 a {
+    color: #5cc90e;
+    text-decoration: none;
+}
+.readmore a {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #72b71c;
+    border-radius: 3px;
+    color: #5db71c;
+}
+.sidebar {
+    background: #ebfee5 none repeat scroll 0 0;
+    border: 1px solid #c5dec8;
+}
+.samesidebar h2 {
+    background: #16AD3B none repeat scroll 0 0;
+    border-bottom: 2px solid #16AD3B;
+    color: #fff;
+}
+.samesidebar ul li {
+    border-bottom: 1px dashed #8ce95c;
+}
+.samesidebar ul li a {
+    color: #008105;
+}
+.footersection {
+    height: 90px;
+    background: #246800;
+    text-align: center;
+    color:white;
+}
+.footermenu ul li a {
+    color: #ece8e1;
+    font-size: 18px;
+    margin-right: 5px;
+    text-decoration: none;
+}

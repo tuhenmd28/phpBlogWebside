@@ -43,13 +43,14 @@ if(isset($_POST['submit'])){
 		<div class="maincontent clear">
 			<div class="about">
 				<h2>Contact us</h2>
-				<?php 
+			<h3 >	<?php 
 				if(isset($error)){
-					echo "<span style='color:red'>$error<span>";
+					echo "<span style='color:red;'>$error<span>";
 				}if(isset($mag)){
-					echo "<span style='color:green'>$mag<span>";
+					echo "<span style='color:green;'>$mag<span>";
 				}
 				?>
+			</h3>
 			<form action="" method="post">
 				<table>
 				<tr>

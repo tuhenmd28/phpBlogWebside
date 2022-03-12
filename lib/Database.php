@@ -60,12 +60,13 @@ Class Database{
   // Delete data
    public function delete($query){
 	$delete_row = $this->link->query($query) or die($this->link->error.__LINE__);
-	if($delete_row){
-		header("Location: index.php?msg=".urlencode('Data Deleted successfully.'));
-		exit();
-	} else {
-		die("Error :(".$this->link->errno.")".$this->link->error);
-	}
+	return $delete_row;
+	// if($delete_row){
+	// 	header("Location: index.php?msg=".urlencode('Data Deleted successfully.'));
+	// 	exit();
+	// } else {
+	// 	die("Error :(".$this->link->errno.")".$this->link->error);
+	// }
   }
 
  

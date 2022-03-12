@@ -1,8 +1,10 @@
 <?php include 'inc/header.php' ?>
-<?php if(!isset($_GET['pageid']) or $_GET['pageid']==null){
+<?php
+$pageid = mysqli_real_escape_string($dbCon->link, $_GET['pageid']);
+ if(!isset($pageid) or $pageid ==null){
             echo "<script>window.location='404.php'</script>";
         }else{
-            $id = $_GET['pageid'];
+            $id =$pageid;
         } ?>
 
 <?php 

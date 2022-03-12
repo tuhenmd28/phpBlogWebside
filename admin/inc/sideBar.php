@@ -29,6 +29,12 @@
                                 <li><a href="catlist.php">Category List</a> </li>
                             </ul>
                         </li>
+                        <li><a class="menuitem">Slider Image</a>
+                            <ul class="submenu">
+                                <li><a href="addsliderimg.php">Add Slider Image</a> </li>
+                                <li><a href="sliderlist.php">Slider Image List</a> </li>
+                            </ul>
+                        </li>
                         <li><a class="menuitem">Post Option</a>
                             <ul class="submenu">
                                 <li><a href="addpost.php">Add Post</a> </li>

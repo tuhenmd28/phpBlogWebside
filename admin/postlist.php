@@ -20,7 +20,7 @@
 		</thead>
 		<tbody>
 			<?php  
-			$query = "SELECT p.id,p.title,p.body,p.image,p.author,p.tags,p.date,c.name FROM post p INNER JOIN categories c ON p.cat = c.id;
+			$query = "SELECT p.id,p.title,p.body,p.image,p.author,p.tags,p.date,p.userid,c.name FROM post p INNER JOIN categories c ON p.cat = c.id;
 			";
 			$result = $dbCon->select($query);
 			if($result){
@@ -30,14 +30,25 @@
 			
 			<tr class="odd gradeX">
 				<td><?php echo ++$key ?></td>
-				<td><a href="editpost.php?editId= <?php echo $val['id'] ?>"><?php echo $val['title'] ?></a></td>
+				<td><?php echo $val['title'] ?></td>
 				<td><?php echo $formateObj->textshorten( $val['body'],150)?></td>
 				<td><?php echo $val['name'] ?></td>
 				<td style="padding: 0;"> <img width="100" height="100" src="<?php echo $val['image'] ?>" alt=""></td>
 				<td class="center"> <?php echo $val['author'] ?></td>
 				<td class="center"> <?php echo $val['tags'] ?></td>
 				<td class="center"> <?php echo $formateObj->Fdate( $val['date']); ?></td>
-				<td><a href="editpost.php?editId=<?php echo $val['id'] ?>" >Edit</a> <br> <a onclick=" return confirm('Are you sure');"  href="deletepost.php?deleteid= <?php echo $val['id'] ?>">Delete</a></td>
+
+		<td>
+			<a href="viewpost.php?viewpostId=<?php echo $val['id'] ?>" >view</a> <br>
+		
+		<?php 
+		if( (session::get('userid') ==  $val['userid']) || session::get('userrole') =='1' ){ ?>
+
+		<a href="editpost.php?editId=<?php echo  $val['id'] ?>" >Edit</a> <br>
+		<a onclick=" return confirm('Are you sure');"  href="deletepost.php?deleteid= <?php echo $val['id'] ?>">Delete</a>
+	<?php	}?>
+
+			</td>
 			</tr>
 						<?php }} ?>
 			

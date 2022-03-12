@@ -3,13 +3,18 @@
 <div class="grid_10">	
 <?php 
         if($_SERVER["REQUEST_METHOD"] == 'POST'){
-            $permited = ['jpg','png'];
+            $permited = ['png'];
             $logoName = $_FILES['name']['name'];
             $logoSize = $_FILES['name']['size'];
             $logoTem = $_FILES['name']['tmp_name'];
             $div = explode('.',$logoName);
             $getExt = end($div);
-            $sameImg = 'logo'.'.'.'png';
+            $msg = '';
+            if($getExt){
+                $sameImg = 'logo'.'.'.$getExt;
+            }else{
+                $sameImg = 'logo'.'.'.'png';
+            }
             $uplodeImg = 'uploade/'.$sameImg;
             move_uploaded_file($logoTem,$uplodeImg);
             
@@ -17,21 +22,21 @@
             $des =mysqli_real_escape_string($dbCon->link,$_POST['slogan']) ;
 
             if(empty($title) || empty($des) ){
-                echo "<span style='color:red;'>feild can not be empty </span>";
+               $msg = "<span style='color:red;'>feild can not be empty </span>";
             }else{
          if(!empty($logoName)){
             if($logoSize>100024) {
-                echo "<span style='color:red;'>size less then 1kB </span>";
+               $msg = "<span style='color:red;'>size less then 1kB </span>";
             }elseif(in_array($getExt,$permited) == false){  
-                echo "<span style='color:red;'>You can upload only:-"
+               $msg = "<span style='color:red;'>You can upload only:-"
                 .implode(', ', $permited)."</span>";
             }else{
                 $query = "UPDATE logotitle SET  title='$title', description='$des' WHERE id=7 ";
                 $insertLogo = $dbCon->update($query);
                 if($insertLogo){
-                    echo "<span style='color:green;'> Update successful </span>";
+                   $msg = "<span style='color:green;'> Update successful </span>";
                 }else{
-                    echo "<span style='red:green;'> Update faild </span>";
+                   $msg = "<span style='red:green;'> Update faild </span>";
                 }
                 }
             }
@@ -39,9 +44,9 @@
                 $query = "UPDATE logotitle SET logo='$uplodeImg', title='$title', description='$des' WHERE id=7 ";
                 $insertLogo = $dbCon->update($query);
                 if($insertLogo){
-                    echo "<span style='color:green;'> Update successful </span>";
+                   $msg = "<span style='color:green;'> Update successful </span>";
                 }else{
-                    echo "<span style='red:green;'> Update faild </span>";
+                   $msg = "<span style='red:green;'> Update faild </span>";
                 }
             }
             }
@@ -59,7 +64,13 @@
   <h2>Update Site Title and Description</h2>
     <div class="block sloginblock">               
       <form action="" method="POST" enctype="multipart/form-data">
-      
+      <h3>
+          <?php
+          if(isset($msg)){
+              echo $msg;
+          }
+          ?>
+      </h3>
         <table class="form">					
             <tr>
                 <td>

@@ -17,7 +17,6 @@
 	
 			$query = "SELECT * FROM post WHERE id= $id ";
 			$result = $dbCon->select($query);
-			// echo $result;
 			if($result){
 			foreach($result as $value ){
 

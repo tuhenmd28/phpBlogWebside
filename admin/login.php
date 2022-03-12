@@ -24,12 +24,11 @@ $formateObj = new dateFormate();
 			if(isset($_POST['submit'])){
 				
 				$name = $formateObj->validation( $_POST['username']);
-				$password = $_POST['password'];
+				$password = md5($_POST['password']);
 
-				// $pass =$formateObj->validation( password_hash($password,PASSWORD_BCRYPT));
 
-				// $name = mysqli_real_escape_string($name);
-				// $password = mysqli_real_escape_string($password);
+				$name = mysqli_real_escape_string($dbCon->link,$name);
+				$password = mysqli_real_escape_string($dbCon->link,$password);
 				$query = "SELECT * FROM user where userName='$name' and password='$password'";
 
 				$result = $dbCon->select($query);
@@ -42,7 +41,8 @@ $formateObj = new dateFormate();
 						session::set("login",true);
 						
 						session::set("username",$value['userName']);
-						session::set("id",$value["id"]);
+						session::set("userid",$value["id"]);
+						session::set("userrole",$value["role"]);
 						header("location:index.php");
 					
 					}else{
@@ -66,6 +66,9 @@ $formateObj = new dateFormate();
 				<input type="submit" name="submit" value="Log in" />
 			</div>
 		</form><!-- form -->
+		<div class="button">
+			<a href="forgotpass.php">Forgot password !</a>
+		</div><!-- button -->
 		<div class="button">
 			<a href="#">Training with live project</a>
 		</div><!-- button -->

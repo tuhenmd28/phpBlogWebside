@@ -1,0 +1,100 @@
+ /* default */
+ .headersection {
+    background: #ca932f none repeat scroll 0 0;
+     }
+     .icon a {
+    background: #a56e0a none repeat scroll 0 0;
+    }
+    .searchbtn input[type="submit"] {
+    border: 1px solid #9d6602;
+    background: #FFE07C;
+}
+.searchbtn input[type="text"] {
+    border: 1px solid #A56E0A;
+    background: #FFE07C;
+}
+.searchbtn input[type="submit"]:hover {
+    background: #b7801c none repeat scroll 0 0;
+    border: 1px solid #e6af4b;
+    color: #fff;
+    transition: all .5s;
+}
+.searchbtn input[type="submit"]:hover {
+    background: #b7801c none repeat scroll 0 0;
+    border: 1px solid #e6af4b;
+    color: #fff;
+}
+.navsection {
+    background: none repeat scroll 0 0 #e6af4b;
+    min-height: 38px;
+}
+.navsection ul li {
+    border-left: 1px solid #fdc662;
+    border-right: 1px solid #c18a26;
+}
+.maincontent {
+    background: #fef4e5 none repeat scroll 0 0;
+    border: 1px solid #027e0630;
+    border-radius: 4px;
+}
+.samepost h2 a {
+    color: #ac7511;
+    text-decoration: none;
+}
+.readmore a {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #b7801c;
+    border-radius: 3px;
+    color: #b7801c;
+}
+.sidebar {
+    background: #ebfee5 none repeat scroll 0 0;
+    border: 1px solid #027e0630;
+    border-radius: 4px;
+}
+.sidebar {
+    background: #fef4e5 none repeat scroll 0 0;
+    border: 1px solid #ded4c5;
+}
+.samesidebar h2 {
+    background: #e6af4b none repeat scroll 0 0;
+    border-bottom: 2px solid #b7801c;
+    color: #333;
+}
+.samesidebar ul li {
+    border-bottom: 1px dashed #e9c05c;
+}
+.samesidebar ul li a {
+    color: #814a00;
+    text-decoration: none;
+}
+.samesidebar ul li {
+    border-bottom: 1px dashed #e9c05c;
+}
+ul.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+.footersection {
+    height: 90px;
+    background: #B7801C;
+    text-align: center;
+}
+.footermenu ul li a {
+    color: #E6AF4B;
+    font-size: 18px;
+    margin-right: 5px;
+}
+ul.pagination li a {
+    text-decoration: none;
+    padding: 6px 10px;
+    margin: 0 5px;
+    background: #2d9d2d;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 3px;
+    transition: all .4s;
+}
+ 

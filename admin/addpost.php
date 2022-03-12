@@ -13,6 +13,7 @@
                         $body = mysqli_real_escape_string($dbCon->link, $_POST['body']);
                         $tags = mysqli_real_escape_string($dbCon->link, $_POST['tags']);
                         $author = mysqli_real_escape_string($dbCon->link, $_POST['author']);
+                        $userid = mysqli_real_escape_string($dbCon->link, $_POST['userid']);
 
 
                         $permited  = array('jpg', 'jpeg', 'png', 'gif');
@@ -40,7 +41,7 @@
                            
                         else{
                            move_uploaded_file($file_temp, $uploaded_image);
-                           $query = "INSERT INTO  post(cat,title,  body,  image,  author,  tags ) VALUES ('$cat',  '$title',' $body','$uploaded_image','$author ','$tags')";
+                           $query = "INSERT INTO  post(cat,title,  body,  image,  author,  tags,userid ) VALUES ('$cat',  '$title',' $body','$uploaded_image','$author ','$tags','$userid')";
                            $inserted_rows = $dbCon->insert($query);
                            if ($inserted_rows) {
                             echo "<span class='success'>Post Inserted Successfully.
@@ -100,7 +101,8 @@
                                 <label>Author</label>
                             </td>
                             <td>
-                                <input type="text"  name="author" placeholder="Enter Post Title..." class="medium" />
+                                <input type="text"  name="author"  value="<?php  echo session::get('username')?>" class="medium" />
+                                <input type="hidden"  name="userid"  value="<?php  echo session::get('userid')?>" class="medium" />
                             </td>
                         </tr>
                         <tr>

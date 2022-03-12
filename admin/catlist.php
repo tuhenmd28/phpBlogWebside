@@ -24,7 +24,7 @@
 						<tr class="odd gradeX">
 							<td><?php echo ++$key ?></td>
 							<td><?php echo $value['name'] ?></td>
-							<td><a href="edit.php?id=<?php echo $value['id'] ?>">Edit</a> || <a onclick=" return confirm('Are you sure');" href="delete.php?id=<?php echo $value['id'] ?>">Delete</a></td>
+							<td><a href="editcat.php?id=<?php echo $value['id'] ?>">Edit</a> || <a onclick=" return confirm('Are you sure');" href="delete.php?id=<?php echo $value['id'] ?>">Delete</a></td>
 						</tr>
 				<?php } ?>
 					</tbody>
